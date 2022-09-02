@@ -41,6 +41,8 @@ class _DesktopBody extends StatelessWidget {
             width: 600,
             height: double.infinity,
             color: Colors.black,
+
+            //child: , TODO: la vista,
           )
         ],
       ),
