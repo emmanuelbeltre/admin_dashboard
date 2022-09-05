@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 import 'package:admin_dashboard/ui/buttons/link_text.dart';
 import 'package:flutter/material.dart';
 
@@ -8,13 +6,12 @@ class LinksBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final Function myFunction;
-
     final size = MediaQuery.of(context).size;
     return Container(
         color: Colors.black,
-        height: size.height * 0.05,
+        height: (size.width > 1000) ? size.height * 0.08 : null,
         child: Wrap(
+          alignment: WrapAlignment.center,
           children: [
             LinkText(text: 'About', onPressed: () => print('About')),
             const LinkText(text: 'Help Center'),
