@@ -1,3 +1,4 @@
+import 'package:admin_dashboard/ui/buttons/custom_outlined_button.dart';
 import 'package:admin_dashboard/ui/buttons/link_text.dart';
 import 'package:flutter/material.dart';
 
@@ -34,15 +35,17 @@ class LoginView extends StatelessWidget {
                     icon: Icons.lock_outline_rounded),
               ),
               const SizedBox(height: 20),
+              CustomOutlinedButtom(text: 'Next'),
+              const SizedBox(height: 20),
               Row(
                 children: [
                   const Text('Don\'t you have an acccount? ',
                       style: TextStyle(color: Colors.grey, fontSize: 16)),
                   LinkText(
-                    color: Colors.blue[300],
+                    color: Colors.blue,
                     text: 'Sign Up',
                     onPressed: () {
-                      //TODO: Go to register layout
+                      //TODO : Go to register layout
                     },
                   )
                 ],
