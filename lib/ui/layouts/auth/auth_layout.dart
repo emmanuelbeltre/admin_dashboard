@@ -15,7 +15,7 @@ class AuthLayout extends StatelessWidget {
 
     return Scaffold(
         body: Scrollbar(
-      thumbVisibility: true,
+      // thumbVisibility: true,
       child: ListView(
         physics: ClampingScrollPhysics(),
         children: [
