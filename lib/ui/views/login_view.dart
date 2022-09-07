@@ -31,6 +31,7 @@ class LoginView extends StatelessWidget {
                     child: Column(
                       children: [
                         TextFormField(
+                          autovalidateMode: AutovalidateMode.always,
                           validator: (value) {
                             if (!EmailValidator.validate(value ?? 'abc')) {
                               return 'Email not valid';
