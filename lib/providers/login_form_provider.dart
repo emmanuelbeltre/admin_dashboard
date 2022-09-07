@@ -9,6 +9,7 @@ class LoginFormProvider extends ChangeNotifier {
   validateForm() {
     if (formKey.currentState!.validate()) {
       print('Form valid...Login');
+      print('$email === $password');
     } else {
       print('Form not valid... Failed');
     }

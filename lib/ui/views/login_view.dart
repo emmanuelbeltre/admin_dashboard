@@ -1,4 +1,5 @@
 import 'package:admin_dashboard/providers/login_form_provider.dart';
+import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 
 import 'package:admin_dashboard/router/router.dart';
@@ -30,14 +31,27 @@ class LoginView extends StatelessWidget {
                     child: Column(
                       children: [
                         TextFormField(
-                          // validator: ((value) => )
+                          validator: (value) {
+                            if (!EmailValidator.validate(value ?? 'abc')) {
+                              return 'Email not valid';
+                            } else {
+                              return null;
+                            }
+                          },
+                          onChanged: (value) => loginFormProvder.email = value,
                           style: const TextStyle(color: Colors.white),
                           decoration: CustomInputs.loginInputDecoration(
                               hint: 'Enter your data',
                               label: 'Phone, email or username',
                               icon: Icons.email_outlined),
                         ),
+
+                        //
+
                         const SizedBox(height: 20),
+
+                        //
+
                         TextFormField(
                           validator: ((value) {
                             if (value == null || value.isEmpty) {
@@ -47,6 +61,8 @@ class LoginView extends StatelessWidget {
                             }
                             return null;
                           }),
+                          onChanged: (value) =>
+                              loginFormProvder.password = value,
                           obscureText: true,
                           style: const TextStyle(color: Colors.white),
                           decoration: CustomInputs.loginInputDecoration(
