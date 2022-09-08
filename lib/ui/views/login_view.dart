@@ -1,3 +1,4 @@
+import 'package:admin_dashboard/providers/auth_provider.dart';
 import 'package:admin_dashboard/providers/login_form_provider.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
@@ -14,8 +15,9 @@ class LoginView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final authProvider = Provider.of<AuthProvider>(context);
     return ChangeNotifierProvider(
-      create: (_) => LoginFormProvider(),
+      create: (_) => LoginFormProvider(authProvider),
       child: Builder(
         builder: (context) {
           final loginFormProvder =
@@ -31,7 +33,6 @@ class LoginView extends StatelessWidget {
                     child: Column(
                       children: [
                         TextFormField(
-                          autovalidateMode: AutovalidateMode.always,
                           validator: (value) {
                             if (!EmailValidator.validate(value ?? 'abc')) {
                               return 'Email not valid';

@@ -57,8 +57,8 @@ class RegisterView extends StatelessWidget {
                               return null;
                             }
                           },
-                          onChanged: ((value) =>
-                              registerFormProvider.email = value),
+                          onChanged: (value) =>
+                              registerFormProvider.email = value,
                           style: const TextStyle(color: Colors.white),
                           decoration: CustomInputs.loginInputDecoration(
                               hint: 'Enter your data',
