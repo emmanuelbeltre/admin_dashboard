@@ -17,13 +17,13 @@ class AuthLayout extends StatelessWidget {
         body: Scrollbar(
       // thumbVisibility: true,
       child: ListView(
-        physics: ClampingScrollPhysics(),
+        physics: const ClampingScrollPhysics(),
         children: [
           (size.width >= 1000)
               ? _DesktopBody(child: child)
               : _MobileBody(child: child),
           //Liks Bar
-          LinksBar()
+          const LinksBar()
         ],
       ),
     ));
@@ -51,7 +51,7 @@ class _MobileBody extends StatelessWidget {
           Container(
             width: double.infinity,
             height: 400,
-            child: BackgroundTwitter(),
+            child: const BackgroundTwitter(),
           )
         ],
       ),
@@ -62,7 +62,7 @@ class _MobileBody extends StatelessWidget {
 class _DesktopBody extends StatelessWidget {
   final Widget child;
 
-  const _DesktopBody({super.key, required this.child});
+  const _DesktopBody({required this.child});
 
   @override
   Widget build(BuildContext context) {
@@ -76,7 +76,7 @@ class _DesktopBody extends StatelessWidget {
         children: [
           // Twitter Background
 
-          BackgroundTwitter(),
+          const Expanded(child: BackgroundTwitter()),
 
           //View Container
           Container(
@@ -85,7 +85,7 @@ class _DesktopBody extends StatelessWidget {
             color: Colors.black,
             child: Column(
               children: [
-                CustomTitle(),
+                const CustomTitle(),
                 const SizedBox(height: 50),
                 Expanded(child: child),
               ],

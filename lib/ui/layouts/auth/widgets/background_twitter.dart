@@ -5,11 +5,10 @@ class BackgroundTwitter extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-        child: Container(
+    return Container(
       decoration: buildBoxDecoration(),
       child: Container(
-        constraints: BoxConstraints(maxWidth: 400),
+        constraints: const BoxConstraints(maxWidth: 400),
         child: const Center(
             child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 30),
@@ -19,7 +18,7 @@ class BackgroundTwitter extends StatelessWidget {
           ),
         )),
       ),
-    ));
+    );
   }
 
   BoxDecoration buildBoxDecoration() {
