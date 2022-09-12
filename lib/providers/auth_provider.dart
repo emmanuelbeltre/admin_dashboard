@@ -1,5 +1,8 @@
-import 'package:admin_dashboard/services/local_storage.dart';
 import 'package:flutter/material.dart';
+import 'package:admin_dashboard/router/router.dart';
+
+import 'package:admin_dashboard/services/local_storage.dart';
+import 'package:admin_dashboard/services/navigation_service.dart';
 
 enum AuthStatus { checking, authenticated, notAuthenticated }
 
@@ -22,8 +25,9 @@ class AuthProvider extends ChangeNotifier {
     LocalStorage.prefs.getString('token');
 
     authStatus = AuthStatus.authenticated;
-
     notifyListeners();
+
+    NavigationService.replaceTo(Flurorouter.dashboardRoute);
   }
 
   Future<bool> isAuthenticated() async {
@@ -37,7 +41,7 @@ class AuthProvider extends ChangeNotifier {
 
     //TODO: go to backend to mahe sure that the JWT is valid
 
-    Future.delayed(const Duration(milliseconds: 1000));
+    await Future.delayed(const Duration(milliseconds: 1000));
     authStatus = AuthStatus.authenticated;
     notifyListeners();
     return true;
