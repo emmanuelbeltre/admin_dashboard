@@ -27,12 +27,14 @@ class AppState extends StatelessWidget {
         //
         ChangeNotifierProvider(lazy: false, create: (_) => AuthProvider())
       ],
-      child: MyApp(),
+      child: const MyApp(),
     );
   }
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -59,7 +61,7 @@ class MyApp extends StatelessWidget {
         // return DashboardLayout(child: child!);
       }),
       theme: ThemeData.light().copyWith(
-          scrollbarTheme: ScrollbarThemeData().copyWith(
+          scrollbarTheme: const ScrollbarThemeData().copyWith(
               thumbColor:
                   MaterialStateProperty.all(Colors.grey.withOpacity(0.5)))),
     );
