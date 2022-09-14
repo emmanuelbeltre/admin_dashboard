@@ -24,19 +24,49 @@ class Sidebar extends StatelessWidget {
           CustomMenuItem(
               text: 'Dashboard',
               icon: Icons.compass_calibration_outlined,
-              onPressed: () => print('Dashboard')),
+              onPressed: () {}),
           CustomMenuItem(
-              text: 'Dashboard',
-              icon: Icons.compass_calibration_outlined,
-              onPressed: () => print('Dashboard')),
+              text: 'Orders',
+              icon: Icons.shopping_cart_outlined,
+              onPressed: () {}),
           CustomMenuItem(
-              text: 'Dashboard',
-              icon: Icons.compass_calibration_outlined,
-              onPressed: () => print('Dashboard')),
+              text: 'Analytic',
+              icon: Icons.show_chart_outlined,
+              onPressed: () {}),
           CustomMenuItem(
-              text: 'Dashboard',
-              icon: Icons.compass_calibration_outlined,
-              onPressed: () => print('Dashboard')),
+              text: 'Categories',
+              icon: Icons.layers_outlined,
+              onPressed: () {}),
+          CustomMenuItem(
+              text: 'Products',
+              icon: Icons.dashboard_outlined,
+              onPressed: () {}),
+          CustomMenuItem(
+              text: 'Discaunt',
+              icon: Icons.attach_money_outlined,
+              onPressed: () {}),
+          CustomMenuItem(
+              text: 'Costumers',
+              icon: Icons.people_alt_outlined,
+              onPressed: () {}),
+          const SizedBox(height: 30),
+          const TextSeparator(text: 'UI Elementes'),
+          CustomMenuItem(
+              text: 'Icons', icon: Icons.list_outlined, onPressed: () {}),
+          CustomMenuItem(
+              text: 'Marketing',
+              icon: Icons.mark_email_read_outlined,
+              onPressed: () {}),
+          CustomMenuItem(
+              text: 'Campaign',
+              icon: Icons.note_add_outlined,
+              onPressed: () {}),
+          CustomMenuItem(
+              text: 'Black', icon: Icons.post_add_outlined, onPressed: () {}),
+          CustomMenuItem(
+              text: 'Log Out',
+              icon: Icons.exit_to_app_outlined,
+              onPressed: () {}),
         ],
       ),
     );
