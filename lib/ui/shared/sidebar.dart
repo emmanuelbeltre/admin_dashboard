@@ -1,5 +1,6 @@
 // ignore_for_file: avoid_print
 
+import 'package:admin_dashboard/providers/side_menu_provider.dart';
 import 'package:admin_dashboard/ui/shared/widgets/menu_item.dart';
 import 'package:flutter/material.dart';
 
@@ -11,6 +12,7 @@ class Sidebar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
     return Container(
       width: 200,
       height: double.infinity,
@@ -24,7 +26,9 @@ class Sidebar extends StatelessWidget {
           CustomMenuItem(
               text: 'Dashboard',
               icon: Icons.compass_calibration_outlined,
-              onPressed: () {}),
+              onPressed: () {
+                SideMenuProvider.closeMenu();
+              }),
           CustomMenuItem(
               text: 'Orders',
               icon: Icons.shopping_cart_outlined,

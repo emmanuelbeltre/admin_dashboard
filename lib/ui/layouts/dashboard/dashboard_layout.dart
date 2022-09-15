@@ -51,11 +51,22 @@ class _DashboardLayoutState extends State<DashboardLayout>
                   animation: SideMenuProvider.menuController,
                   builder: (context, _) => Stack(
                         children: [
-                          //TODO: SideBar Background
-
+                          if (SideMenuProvider.isOpen)
+                            AnimatedOpacity(
+                              opacity: SideMenuProvider.opacity.value,
+                              duration: const Duration(milliseconds: 200),
+                              child: GestureDetector(
+                                onTap: () => SideMenuProvider.closeMenu(),
+                                child: Container(
+                                  width: size.width,
+                                  height: size.height,
+                                  color: Colors.black26,
+                                ),
+                              ),
+                            ),
                           Transform.translate(
                             offset: Offset(SideMenuProvider.movement.value, 0),
-                            child: Sidebar(),
+                            child: const Sidebar(),
                           )
                         ],
                       ))
