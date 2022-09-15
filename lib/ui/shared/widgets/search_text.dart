@@ -11,7 +11,7 @@ class SearchText extends StatelessWidget {
       decoration: buildBoxDecoration(),
       child: TextField(
         decoration: CustomInputs.searchInputDecoration(
-            hint: 'Buscar', icon: Icons.search_off_outlined),
+            hint: 'Buscar', icon: Icons.search_outlined),
       ),
     );
   }

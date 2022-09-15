@@ -1,3 +1,5 @@
+import 'package:admin_dashboard/ui/shared/widgets/navbar_avatar.dart';
+import 'package:admin_dashboard/ui/shared/widgets/notifications_indicator.dart';
 import 'package:flutter/material.dart';
 
 import 'widgets/search_text.dart';
@@ -13,16 +15,21 @@ class NavBar extends StatelessWidget {
       decoration: buildBoxDecoration(),
       child: Row(
         children: [
-          //TODO menu icon
-          IconButton(onPressed: () {}, icon: Icon(Icons.menu_outlined)),
-          SizedBox(width: 5),
+          //TO DO menu icon
+          IconButton(onPressed: () {}, icon: const Icon(Icons.menu_outlined)),
+          const SizedBox(width: 5),
 
           //Search input
 
           ConstrainedBox(
-            constraints: BoxConstraints(maxWidth: 250),
-            child: SearchText(),
-          )
+            constraints: const BoxConstraints(maxWidth: 250),
+            child: const SearchText(),
+          ),
+          const Spacer(),
+          const NotificationsIndicator(),
+          const SizedBox(width: 10),
+          const NavbarAvatar(),
+          const SizedBox(width: 10),
         ],
       ),
     );
