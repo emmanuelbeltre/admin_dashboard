@@ -1,10 +1,10 @@
-// ignore_for_file: unnecessary_new
+import 'package:flutter/material.dart';
 
 import 'package:admin_dashboard/providers/side_menu_provider.dart';
 import 'package:admin_dashboard/ui/shared/navbar.dart';
 import 'package:admin_dashboard/ui/shared/sidebar.dart';
-import 'package:flutter/material.dart';
 
+// ignore_for_file: unnecessary_new
 class DashboardLayout extends StatefulWidget {
   const DashboardLayout({Key? key, required this.child}) : super(key: key);
   final Widget child;
@@ -39,7 +39,12 @@ class _DashboardLayoutState extends State<DashboardLayout>
                       const NavBar(),
 
                       //View
-                      Expanded(child: widget.child)
+                      Expanded(
+                          child: Padding(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 20, vertical: 10),
+                        child: widget.child,
+                      ))
                       // My view Conatiner
                     ],
                   ),

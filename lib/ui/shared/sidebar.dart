@@ -1,8 +1,9 @@
 // ignore_for_file: avoid_print
 
+import 'package:flutter/material.dart';
+
 import 'package:admin_dashboard/providers/side_menu_provider.dart';
 import 'package:admin_dashboard/ui/shared/widgets/menu_item.dart';
-import 'package:flutter/material.dart';
 
 import 'widgets/logo.dart';
 import 'widgets/text_separator.dart';
