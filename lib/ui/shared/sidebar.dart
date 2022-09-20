@@ -1,5 +1,7 @@
 // ignore_for_file: avoid_print
 
+import 'package:admin_dashboard/router/router.dart';
+import 'package:admin_dashboard/services/navigation_service.dart';
 import 'package:flutter/material.dart';
 
 import 'package:admin_dashboard/providers/side_menu_provider.dart';
@@ -9,6 +11,11 @@ import 'widgets/logo.dart';
 import 'widgets/text_separator.dart';
 
 class Sidebar extends StatelessWidget {
+  void navigateTo(String routeName) {
+    NavigationService.navigateTo(routeName);
+    SideMenuProvider.closeMenu();
+  }
+
   const Sidebar({Key? key}) : super(key: key);
 
   @override
@@ -27,9 +34,7 @@ class Sidebar extends StatelessWidget {
           CustomMenuItem(
               text: 'Dashboard',
               icon: Icons.compass_calibration_outlined,
-              onPressed: () {
-                SideMenuProvider.closeMenu();
-              }),
+              onPressed: () => navigateTo(Flurorouter.dashboardRoute)),
           CustomMenuItem(
               text: 'Orders',
               icon: Icons.shopping_cart_outlined,
@@ -55,9 +60,11 @@ class Sidebar extends StatelessWidget {
               icon: Icons.people_alt_outlined,
               onPressed: () {}),
           const SizedBox(height: 30),
-          const TextSeparator(text: 'UI Elementes'),
+          const TextSeparator(text: 'UI Elements'),
           CustomMenuItem(
-              text: 'Icons', icon: Icons.list_outlined, onPressed: () {}),
+              text: 'Icons',
+              icon: Icons.list_outlined,
+              onPressed: () => navigateTo(Flurorouter.iconsRoute)),
           CustomMenuItem(
               text: 'Marketing',
               icon: Icons.mark_email_read_outlined,
@@ -68,6 +75,8 @@ class Sidebar extends StatelessWidget {
               onPressed: () {}),
           CustomMenuItem(
               text: 'Black', icon: Icons.post_add_outlined, onPressed: () {}),
+          const SizedBox(height: 50),
+          const TextSeparator(text: 'Exit'),
           CustomMenuItem(
               text: 'Log Out',
               icon: Icons.exit_to_app_outlined,

@@ -50,11 +50,12 @@ class IconsView extends StatelessWidget {
                     child: Icon(Icons.build_circle_outlined),
                   )),
               WhiteCard(
-                  width: 170,
-                  title: 'category_outlined',
-                  child: Center(
-                    child: Icon(Icons.category_outlined),
-                  )),
+                width: 170,
+                title: 'category_outlined',
+                child: Center(
+                  child: Icon(Icons.category_outlined),
+                ),
+              ),
             ],
           )
         ],

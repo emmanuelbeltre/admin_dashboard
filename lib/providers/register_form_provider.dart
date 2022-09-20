@@ -1,3 +1,5 @@
+// ignore_for_file: unnecessary_new, avoid_print
+
 import 'package:flutter/material.dart';
 
 class RegisterFormProvider extends ChangeNotifier {
