@@ -7,7 +7,7 @@ class NoPageFoundView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.black12,
+      // color: Colors.black12,
       child: ListView(physics: const ClampingScrollPhysics(), children: [
         Center(
           child: Text(
