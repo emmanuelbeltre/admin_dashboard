@@ -1,10 +1,12 @@
 // ignore_for_file: avoid_print
-
-import 'package:admin_dashboard/router/router.dart';
-import 'package:admin_dashboard/services/navigation_service.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import 'package:admin_dashboard/providers/side_menu_provider.dart';
+
+import 'package:admin_dashboard/router/router.dart';
+
+import 'package:admin_dashboard/services/navigation_service.dart';
 import 'package:admin_dashboard/ui/shared/widgets/menu_item.dart';
 
 import 'widgets/logo.dart';
@@ -20,7 +22,8 @@ class Sidebar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
+    final sideMenuProvider = Provider.of<SideMenuProvider>(context);
+
     return Container(
       width: 200,
       height: double.infinity,
@@ -32,9 +35,12 @@ class Sidebar extends StatelessWidget {
           const SizedBox(height: 50),
           const TextSeparator(text: 'Main'),
           CustomMenuItem(
-              text: 'Dashboard',
-              icon: Icons.compass_calibration_outlined,
-              onPressed: () => navigateTo(Flurorouter.dashboardRoute)),
+            text: 'Dashboard',
+            icon: Icons.compass_calibration_outlined,
+            onPressed: () => navigateTo(Flurorouter.dashboardRoute),
+            isActive:
+                sideMenuProvider.currentPage == Flurorouter.dashboardRoute,
+          ),
           CustomMenuItem(
               text: 'Orders',
               icon: Icons.shopping_cart_outlined,
@@ -62,9 +68,11 @@ class Sidebar extends StatelessWidget {
           const SizedBox(height: 30),
           const TextSeparator(text: 'UI Elements'),
           CustomMenuItem(
-              text: 'Icons',
-              icon: Icons.list_outlined,
-              onPressed: () => navigateTo(Flurorouter.iconsRoute)),
+            text: 'Icons',
+            icon: Icons.list_outlined,
+            onPressed: () => navigateTo(Flurorouter.iconsRoute),
+            isActive: sideMenuProvider.currentPage == Flurorouter.iconsRoute,
+          ),
           CustomMenuItem(
               text: 'Marketing',
               icon: Icons.mark_email_read_outlined,
