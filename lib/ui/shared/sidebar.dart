@@ -82,7 +82,11 @@ class Sidebar extends StatelessWidget {
               icon: Icons.note_add_outlined,
               onPressed: () {}),
           CustomMenuItem(
-              text: 'Black', icon: Icons.post_add_outlined, onPressed: () {}),
+            text: 'Blank',
+            icon: Icons.post_add_outlined,
+            onPressed: () => navigateTo(Flurorouter.blankRoute),
+            isActive: sideMenuProvider.currentPage == Flurorouter.blankRoute,
+          ),
           const SizedBox(height: 50),
           const TextSeparator(text: 'Exit'),
           CustomMenuItem(
