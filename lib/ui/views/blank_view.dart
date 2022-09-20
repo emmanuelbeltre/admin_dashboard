@@ -1,8 +1,12 @@
-import 'package:admin_dashboard/ui/cards/white_card.dart';
-import 'package:admin_dashboard/ui/labels/custom_labels.dart';
+// ignore_for_file: avoid_unnecessary_containers
 import 'package:flutter/material.dart';
 
+import 'package:admin_dashboard/ui/labels/custom_labels.dart';
+import 'package:admin_dashboard/ui/cards/white_card.dart';
+
 class BlankView extends StatelessWidget {
+  const BlankView({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Container(
