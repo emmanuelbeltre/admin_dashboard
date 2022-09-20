@@ -40,9 +40,9 @@ class _DashboardLayoutState extends State<DashboardLayout>
 
                       //View
                       Expanded(
-                          child: Padding(
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 20, vertical: 10),
+                          child: Container(
+                        // padding: const EdgeInsets.symmetric(
+                        //     horizontal: 20, vertical: 10),
                         child: widget.child,
                       ))
                       // My view Conatiner

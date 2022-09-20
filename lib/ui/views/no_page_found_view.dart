@@ -8,13 +8,15 @@ class NoPageFoundView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       color: Colors.black12,
-      child: Center(
-        child: Text(
-          '404 - No Page Found',
-          style: GoogleFonts.montserratAlternates(
-              fontSize: 50, fontWeight: FontWeight.bold),
+      child: ListView(physics: const ClampingScrollPhysics(), children: [
+        Center(
+          child: Text(
+            '404 - No Page Found',
+            style: GoogleFonts.montserratAlternates(
+                fontSize: 50, fontWeight: FontWeight.bold),
+          ),
         ),
-      ),
+      ]),
     );
   }
 }
