@@ -43,6 +43,7 @@ class Flurorouter {
         handler: DashboardHandlers.blank,
         transitionType: TransitionType.fadeIn);
 //404
+
     router.notFoundHandler = NoPageFoundHandlers.noPageFound;
   }
 }
