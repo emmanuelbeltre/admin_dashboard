@@ -6,6 +6,7 @@ import 'package:admin_dashboard/models/http/auth_response.dart';
 
 import 'package:admin_dashboard/services/local_storage.dart';
 import 'package:admin_dashboard/services/navigation_service.dart';
+import 'package:admin_dashboard/services/notifications_service.dart';
 
 enum AuthStatus { checking, authenticated, notAuthenticated }
 
@@ -48,6 +49,7 @@ class AuthProvider extends ChangeNotifier {
       print('error en: $e');
 
       //TODO: Mostrar notifiicacion de error
+      NotificationsService.showSnackbarError('Usuario / Password no válidos');
     });
 
     // authStatus = AuthStatus.authenticated;
