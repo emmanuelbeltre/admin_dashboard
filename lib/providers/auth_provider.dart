@@ -105,4 +105,12 @@ class AuthProvider extends ChangeNotifier {
     notifyListeners();
     return true;
   }
+
+  //LOGOUT
+
+  logout() {
+    LocalStorage.prefs.remove('token');
+    authStatus = AuthStatus.notAuthenticated;
+    notifyListeners();
+  }
 }

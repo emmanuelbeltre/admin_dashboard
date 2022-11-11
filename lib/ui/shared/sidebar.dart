@@ -1,4 +1,5 @@
 // ignore_for_file: avoid_print
+import 'package:admin_dashboard/providers/auth_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -92,7 +93,9 @@ class Sidebar extends StatelessWidget {
           CustomMenuItem(
               text: 'Log Out',
               icon: Icons.exit_to_app_outlined,
-              onPressed: () {}),
+              onPressed: () {
+                Provider.of<AuthProvider>(context, listen: false).logout();
+              }),
         ],
       ),
     );
