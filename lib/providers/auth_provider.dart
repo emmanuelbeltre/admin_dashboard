@@ -87,9 +87,11 @@ class AuthProvider extends ChangeNotifier {
     try {
       final resp = await CafeApi.httpGet('/auth');
       final authResponse = AuthResponse.fromMap(resp);
+      LocalStorage.prefs.setString('token', authResponse.token);
 
-      this.user = authResponse.usuario;
       authStatus = AuthStatus.authenticated;
+      this.user = authResponse.usuario;
+
       notifyListeners();
       return true;
     } catch (e) {
