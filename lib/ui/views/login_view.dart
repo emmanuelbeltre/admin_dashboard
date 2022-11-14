@@ -20,7 +20,7 @@ class LoginView extends StatelessWidget {
       create: (_) => LoginFormProvider(),
       child: Builder(
         builder: (context) {
-          final loginFormProvder =
+          final loginFormProvider =
               Provider.of<LoginFormProvider>(context, listen: false);
           return Container(
             margin: const EdgeInsets.only(top: 100),
@@ -29,10 +29,12 @@ class LoginView extends StatelessWidget {
               child: ConstrainedBox(
                 constraints: const BoxConstraints(maxWidth: 370),
                 child: Form(
-                    key: loginFormProvder.formKey,
+                    key: loginFormProvider.formKey,
                     child: Column(
                       children: [
                         TextFormField(
+                          onFieldSubmitted: (_) =>
+                              onFormSubmit(loginFormProvider, authProvider),
                           validator: (value) {
                             if (!EmailValidator.validate(value ?? 'abc')) {
                               return 'Email not valid';
@@ -40,7 +42,7 @@ class LoginView extends StatelessWidget {
                               return null;
                             }
                           },
-                          onChanged: (value) => loginFormProvder.email = value,
+                          onChanged: (value) => loginFormProvider.email = value,
                           style: const TextStyle(color: Colors.white),
                           decoration: CustomInputs.loginInputDecoration(
                               hint: 'Enter your data',
@@ -55,6 +57,8 @@ class LoginView extends StatelessWidget {
                         //
 
                         TextFormField(
+                          onFieldSubmitted: (_) =>
+                              onFormSubmit(loginFormProvider, authProvider),
                           validator: ((value) {
                             if (value == null || value.isEmpty) {
                               return 'Enter your password';
@@ -64,7 +68,7 @@ class LoginView extends StatelessWidget {
                             return null;
                           }),
                           onChanged: (value) =>
-                              loginFormProvder.password = value,
+                              loginFormProvider.password = value,
                           obscureText: true,
                           style: const TextStyle(color: Colors.white),
                           decoration: CustomInputs.loginInputDecoration(
@@ -75,14 +79,8 @@ class LoginView extends StatelessWidget {
                         const SizedBox(height: 20),
                         CustomOutlinedButtom(
                           text: 'Next',
-                          onPressed: () {
-                            final isValid = loginFormProvder.validateForm();
-
-                            if (isValid) {
-                              authProvider.login(loginFormProvder.email,
-                                  loginFormProvder.password);
-                            }
-                          },
+                          onPressed: () =>
+                              onFormSubmit(loginFormProvider, authProvider),
                         ),
                         const SizedBox(height: 20),
                         Row(
@@ -108,5 +106,14 @@ class LoginView extends StatelessWidget {
         },
       ),
     );
+  }
+
+  void onFormSubmit(
+      LoginFormProvider loginFormProvider, AuthProvider authProvider) {
+    final isValid = loginFormProvider.validateForm();
+
+    if (isValid) {
+      authProvider.login(loginFormProvider.email, loginFormProvider.password);
+    }
   }
 }
