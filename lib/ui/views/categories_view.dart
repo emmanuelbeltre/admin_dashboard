@@ -1,4 +1,5 @@
 // ignore_for_file: avoid_unnecessary_containers
+import 'package:admin_dashboard/datatables/categories_datasource.dart';
 import 'package:flutter/material.dart';
 
 import 'package:admin_dashboard/ui/labels/custom_labels.dart';
@@ -14,10 +15,14 @@ class CategoriesView extends StatelessWidget {
       child: ListView(
         physics: const ClampingScrollPhysics(),
         children: [
-          Text('Categories View', style: CustomLabels.h1),
+          Text('Categories', style: CustomLabels.h1),
           const SizedBox(height: 10),
-          const WhiteCard(
-              title: 'Categories Title', child: Text('Hello World')),
+          PaginatedDataTable(columns: [
+            DataColumn(label: Text('ID')),
+            DataColumn(label: Text('Catedory')),
+            DataColumn(label: Text('Created for')),
+            DataColumn(label: Text('Acctions')),
+          ], source: CategoriesDTS()),
         ],
       ),
     );
